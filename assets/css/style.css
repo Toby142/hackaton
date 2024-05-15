@@ -1,0 +1,143 @@
+:root {
+--whiteBG: white;
+--buttonText: white;
+--titleText: black;
+--subTitle: #A9A9A9;
+}
+  
+* {
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Core Sans C;
+}
+
+body {
+    padding: 50px;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--whiteBG);
+
+}
+
+
+form#auth-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auth-input-container {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    height: auto;
+}
+.auth-title {
+    color: var(--titleText);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.auth-subtitle {
+    color: var(--subTitle);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 300;
+}
+.auth-button-container {
+    width: 100%;
+    height: auto;
+}
+.auth-button-container button {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    border-radius: 10px;
+    border: none;
+    color: var(--buttonText);
+}
+
+.auth-input-fields{
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+label {
+    gap: 5px;
+    font-size: 13px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+label input {
+    padding: 0 15px 0 15px;
+    font-size: 15px;
+    text-align: left;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+}
+input::placeholder {
+    color: #D4D4D4;
+}
+label:has(#first-name),
+label:has(#last-name) {
+    width: calc(50% - 6px);
+}
+#first-name,
+#last-name {
+    width: 100%;
+}
+.auth-info-text {
+    text-align: center;
+    color: #B0B0B0;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+label:has(input[type=radio]) {
+    font-size: 20px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+
+input[type=radio] {
+    width: 40px;
+    height: 40px;
+}
+
+
+.auth-input-fields:has(input[type=radio]) {
+
+    justify-content: flex-start;
+}
+
+.auth-extra {
+    color: #A9A9A9;
+    font-family: Core Sans C;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 200;
+    line-height: normal;
+}

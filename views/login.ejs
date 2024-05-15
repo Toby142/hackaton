@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex - Login</title>
+    <link rel="stylesheet" href="../assets/css/style.css"/>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="../assets/js/jquery.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/auth.js" defer></script>
+</head>
+<body>
+    <form id="auth-form" class="login">
+        <div class="auth-input-container">
+            <p class="auth-title">Lets sign you in.</p>
+            <p class="auth-subtitle">Welcome Back!</p>
+            <p class="auth-subtitle">You’ve been missed!</p>
+            <div class="auth-input-fields">
+
+                <label for="username-email">Username/Email
+                <input name="username-email" id="username-email" type="text" maxlength="40" placeholder="Enter Username or Email"/>
+                </label>
+
+                <label for="current-password">Password
+                <input name="current-password" id="current-password" type="password" maxlength="50" placeholder="Password"/>
+                </label>
+            
+                <a href="register" class="auth-info-text">Dont have a account?<br>click to make one.</a>
+            </div>
+        </div>
+
+        <div class="auth-button-container">
+            <button>Login</button>
+        </div>
+    </form>
+</body>
+</html>

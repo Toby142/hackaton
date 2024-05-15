@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex - Register</title>
+    <link rel="stylesheet" href="/assets/css/style.css"/>
+    <script src="/assets/js/jquery.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/auth.js" defer></script>
+</head>
+<body>
+    <form id="auth-form" class="register">
+        <div class="auth-input-container">
+            <p class="auth-title">Lets get you<br>started.</p>
+            <p class="auth-subtitle">You’ve been expected!</p>
+            <div class="auth-input-fields">
+                <label for="first-name">First Name
+                <input name="firstname" id="first-name" type="text" maxlength="15" placeholder="First Name"/>
+                </label>
+
+                <label for="last-name">Sir Name
+                <input name="lastname" id="last-name" type="text" maxlength="25" placeholder="Sir Name"/>
+                </label>
+
+                <label for="username">Username
+                <input name="username" id="username" type="text" maxlength="20" placeholder="Enter Email"/>
+                </label>
+
+                <label for="email">Email
+                <input name="email" id="email" type="text" maxlength="40" placeholder="Enter Username"/>
+                </label>
+
+                <label for="new-password">Password
+                <input name="newpassword" id="new-password" type="password" maxlength="50" placeholder="Password"/>
+                </label>
+                <a href="login" class="auth-info-text">Already have a account?<br>click here to login.</a>
+            </div>
+        </div>
+
+        <div class="auth-button-container">
+            <button>Register</button>
+        </div>
+    </form>
+
+</body>
+</html>
