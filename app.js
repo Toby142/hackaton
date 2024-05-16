@@ -68,6 +68,16 @@ app.get('/home', logEvent, isUserLoggedIn, async (req, res) => {
     res.render('home', { userData });
 });
 
+
+app.get('/create-app', logEvent, isUserLoggedIn, async (req, res) => {
+  const userData = await getUserData(req);
+  res.render('create-app', { userData });
+});
+app.get('/edit-app', logEvent, isUserLoggedIn, async (req, res) => {
+  const userData = await getUserData(req);
+  res.render('edit-app', { userData });
+});
+
 app.get('/profile', logEvent, isUserLoggedIn, async (req, res) => {
     const userData = await getUserData(req);
     res.render('profile', { userData });

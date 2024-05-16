@@ -1,0 +1,24 @@
+h1 {
+    font-size: 35px;
+    font-family: 'core sans 45';
+}
+
+input, label, h1, p, a{
+    font-family: 'core sans 45'!important;
+}
+
+.profile-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 300px;
+}
+
+.app {
+    margin-top: -40px;
+}
+
+#delete {
+    color: #FF6666;
+    font-size: 15px;
+}
