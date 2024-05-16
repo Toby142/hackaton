@@ -1,0 +1,160 @@
+@font-face {
+    font-family: "core sans";
+    src: url("../font/Fontspring-DEMO-coresansc35.otf");
+  }
+
+  @font-face {
+    font-family: "core sans 25 it";
+    src: url("../font/Fontspring-DEMO-coresansc25it.otf");
+  }
+  @font-face {
+    font-family: "core sans 25";
+    src: url("../font/Fontspring-DEMO-coresansc25.otf");
+  }
+  @font-face {
+    font-family: "core sans it";
+    src: url("../font/Fontspring-DEMO-coresansc35it.otf");
+  }
+  @font-face {
+    font-family: "core sans 45";
+    src: url("../font/Fontspring-DEMO-coresansc45.otf");
+  }
+
+  @font-face {
+    font-family: "core sans 55";
+    src: url("../font/Fontspring-DEMO-coresansc55.otf");
+  }
+
+  @font-face {
+    font-family: "core sans 75";
+    src: url("../font/Fontspring-DEMO-coresansc75.otf");
+  }
+
+  @font-face {
+    font-family: "core sans 85";
+    src: url("../assets/font/Fontspring-DEMO-coresansc85.otf");
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    justify-content: start;
+    align-items: start;
+    height: 100vh;
+  }
+
+  .warning-message {
+    font-family: "core sans 55";
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .warning-message span {
+    font-family: "core sans 75";
+    color: #ffa826;
+  }
+
+  .wrn-btn {
+    background-color: #ffa826;
+    color: white;
+    font-family: "core sans 45";
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  .optional {
+    font-family: "core sans it";
+    color: #a9a9a9;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .warning-circle {
+    background-color: #f8f8f8;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .link{
+    text-decoration: none;
+    color: #002DA0;
+    font-family: "core sans 25 it";
+    font-size: 15px;
+  }
+
+  .warning{
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+  }
+
+  .specs-heading{
+font-family: "core sans 45";
+color: #000000;
+font-size: 20px;
+  }
+
+  .specs-btns{
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+  }
+
+  .spec{
+    background-color: #76C574;
+    color: white;
+    font-family:"core sans 55" ;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 18px;
+
+  }
+
+  .col{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .col .spec{
+    font-family:"core sans" ;
+    padding: 10px;
+  }
+
+  .rating{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .rating-btns {
+    display: flex;
+    gap: 40px;  
+}
+  .rating-btns img{
+    width: 80px;
+    transition: all .2s ease-in-out; 
+
+  }
+
+
+    
+    .rating-btns img:hover { 
+    transform: scale(1.3); 
+    }
