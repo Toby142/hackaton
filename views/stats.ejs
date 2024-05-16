@@ -16,26 +16,60 @@
         <h1 class="head-greating-name">Hallo alex,</h1>
         <p class="head-greeting-message">Goedemorgen 👊🏻</p>
         <div class="head-icons-container">
-          <div class="head-icon-item">
+          <a class="head-icon-item" href="/profile">
             <div class="icon-circle"></div>
             <div class="icon-item-name">Profile</div>
-          </div>
-          <div class="head-icon-item">
+          </a>
+          <a class="head-icon-item" href="/">
             <div class="icon-circle"></div>
             <div class="icon-item-name">Apps</div>
-          </div>
-          <div class="head-icon-item">
+          </a>
+          <a class="head-icon-item" href="/stats">
             <div class="icon-circle"></div>
             <div class="icon-item-name">Statistics</div>
-          </div>
+          </a>
         </div>
       </div>
       <section class="apps-container">
         <div class="apps-head">
           <h2 class="section-name">My Statistics</h2>
-          <button class="add"></button>
+          <!-- <button class="add"></button> -->
         </div>
-        <p class="notification-emp">Nothing to see.</p>
+
+        <div id="apps-list-container">
+
+          <div class="app">
+              <div class="app-top">
+                  <div class="app-top-left">
+                      <div class="app-status"></div>
+                      <p>MaMa Productie</p>
+                  </div> 
+                  
+                  <a class="app-top-right">
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                  </a>
+              </div>
+
+              <div class="app-bottom">
+                  <div class="app-stats-cont">
+
+                    <div class="app-stat-likes">
+                      <p>353</p> <p>👍</p>
+                    </div>
+
+                    <div class="app-stat-dislike">
+                      <p>533</p> <p>👎</p>
+                    </div>
+
+                    <div class="app-stat-views">
+                      <p>2233</p> <p>👀</p>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+        <!-- <p class="notification-emp">Nothing to see.</p> -->
       </section>
       <div class="copyright-wrapper">
         <p class="copyright">Compatguard <br />creation by Bananen Team</p>
