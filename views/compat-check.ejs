@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Pagina</title>
+  <link rel="stylesheet" href="/assets/css/home.css" />
+  <link rel="stylesheet" href="/assets/css/reset.css" />
+  <link rel="stylesheet" href="/assets/css/profile.css" />
+
+  <script src="https://wurfl.io/wurfl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/platform/1.3.6/platform.min.js"></script>
+
+</head>
+
+<body>
+  <h1>Compat Care</h1>
+  <p>Device compatibility check please wait</p>
+
+  <h1>Compat <span style="color: rgb(67, 67, 206);">Guard</span></h1>
+  <p id="firstOs"></p>
+
+  <p id="device"></p> 
+  <p id="os"></p>
+  <p id="modelName"></p>
+
+  <table id="table">
+
+  </table>
+</body>
+
+<script>
+
+  const iosDeviceMapping = new Map([
+    ["320x480", "IPhone 4S"],
+    ["320x568", "IPhone 5"],
+    ["375x667", "IPhone SE"],
+    ["375x812", "IPhone X"],
+    ["390x844", "IPhone 13"],
+    ["414x736", "IPhone 8+"],
+    ["414x896", "IPhone 11"],
+    ["428x926", "IPhone 13"],
+    ["476x847", "IPhone 7"],
+    ["744x1133", "IPad Mini 6th Gen"],
+    ["768x1024", "IPad Mini (5th Gen), IPad (1-6th Gen), iPad Pro (1st Gen 9.7), Ipad Mini (1-4), IPad Air(1-2)  "],
+    ["810x1080", "IPad 7-9th Gen"],
+    ["820x1180", "iPad Air (4th gen)"],
+    ["834x1194", "iPad Pro (3-5th Gen 11)"],
+    ["834x1112", "iPad Air (3rd gen), iPad Pro (2nd gen 10.5)"],
+    ["1024x1366", "iPad Pro (1-5th Gen 12.9)"],
+  ]);
+
+  function checkOperatingSystem() {
+    let operatingSystem = platform.os.family;
+    document.getElementById("firstOs").innerHTML = operatingSystem;
+
+    switch (operatingSystem) {
+      case "iOS":
+        identifyiOSDevice();
+        break;
+      case "Android":
+        identifyAndroidDevice();
+        break;
+      default:
+        identifyOtherDevice();
+    }
+  }
+
+  function displayDeviceInfo(device, os, modelName) {
+    document.getElementById("device").innerHTML = "<b>Device</b>: " + device;
+    document.getElementById("os").innerHTML = "<b>OS</b>: " + os;
+    document.getElementById("modelName").innerHTML = "<b>Model or similar</b>: " + modelName;
+
+    console.log(device);
+    console.log(os);
+    console.log(modelName);
+
+    searchPhone(device);
+  }
+
+  function identifyAndroidDevice() {
+    let device = WURFL.complete_device_name;
+    let os = platform.os.version;
+    let modelName = WURFL.form_factor;
+
+    displayDeviceInfo(device, os, modelName);
+  }
+
+  function identifyiOSDevice() {
+    let screenWidth = window.screen.width;
+    let screenHeight = window.screen.height;
+    let screenSize = screenWidth + "x" + screenHeight;
+
+    let device = WURFL.complete_device_name;
+    let os = platform.os.version;
+
+    let modelName = iosDeviceMapping.get(screenSize) || "Model not found";
+    document.getElementById("modelName").innerHTML = "<b>Phone model or similar model</b>: " + modelName;
+
+    displayDeviceInfo(device, os, modelName);
+  }
+
+  function identifyOtherDevice() {
+    let device = WURFL.complete_device_name;
+    let os = platform.os.version;
+    let modelName = WURFL.form_factor;
+
+    displayDeviceInfo(device, os, modelName);
+  }
+
+  function searchPhone(device) {
+    console.log(device)
+  }
+
+  let phoneHardware = {
+    deviceMemory: navigator.deviceMemory || 'N/A',
+    hardwareConcurrency: navigator.hardwareConcurrency || 'N/A',
+    screen: {
+      width: window.screen.width,
+      height: window.screen.height,
+      colorDepth: window.screen.colorDepth,
+      pixelDepth: window.screen.pixelDepth
+    },
+    camera: {
+      hasCamera: navigator.mediaDevices && navigator.mediaDevices.getUserMedia ? true : false
+    },
+    microphone: {
+      hasMicrophone: navigator.mediaDevices && navigator.mediaDevices.getUserMedia ? true : false
+    },
+
+    battery: {
+      level: 'N/A',
+      charging: 'N/A'
+    },
+    touchScreen: {
+      touchPoints: navigator.maxTouchPoints || 'N/A',
+      touchEvent: 'ontouchstart' in window || navigator.maxTouchPoints ? true : false
+    },
+    bluetooth: {
+      hasBluetooth: 'bluetooth' in navigator ? true : false
+    },
+    accelerometer: {
+      hasAccelerometer: 'LinearAccelerationSensor' in window ? true : false
+    },
+    gyroscope: {
+      hasGyroscope: 'Gyroscope' in window ? true : false
+    },
+    deviceOrientationEvent: {
+      hasDeviceOrientationEvent: 'DeviceOrientationEvent' in window ? true : false
+    },
+    ambientLightSensor: {
+      hasAmbientLightSensor: 'AmbientLightSensor' in window ? true : false
+    },
+    proximitySensor: {
+      hasProximitySensor: 'ProximitySensor' in window ? true : false
+    }
+  };
+
+  function showHardware() {
+    // Visualize all the data in the table
+    let table = document.getElementById("table");
+    let tableHTML = "<tr><th>Hardware</th><th>Value</th></tr>";
+
+    // Check if the browser supports the Battery Status API
+    if ('getBattery' in navigator) {
+      navigator.getBattery().then(function (battery) {
+        phoneHardware.battery.level = battery.level * 100 + "%";
+        phoneHardware.battery.charging = battery.charging ? "Yes" : "No";
+        updateTable();
+      }).catch(function (error) {
+        console.error("Error getting battery status:", error);
+        updateTable();
+      });
+    } else {
+      console.log("Battery status API is not supported, trying alternative methods...");
+      // Try alternative methods for obtaining battery information
+      if ('onbatterychange' in window) {
+        window.addEventListener('batterychange', function () {
+          updateBatteryInfo();
+        });
+      } else {
+        console.warn("Alternative methods for battery information not supported.");
+      }
+      // Update battery information initially
+      updateBatteryInfo();
+    }
+
+    function updateBatteryInfo() {
+      // Check if the Battery API is available
+      if ('battery' in navigator) {
+        let battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery;
+        phoneHardware.battery.level = battery.level * 100 + "%";
+        phoneHardware.battery.charging = battery.charging ? "Yes" : "No";
+      }
+      // Update the table
+      updateTable();
+    }
+
+    function updateTable() {
+      for (let key in phoneHardware) {
+        if (typeof phoneHardware[key] === "object") {
+          for (let subKey in phoneHardware[key]) {
+            let cellData = "N/A";
+
+            if (phoneHardware[key][subKey] === true) {
+              cellData = "✅";
+            } else if (phoneHardware[key][subKey] === false) {
+              cellData = "❌";
+            } else {
+              cellData = phoneHardware[key][subKey];
+            }
+
+            tableHTML += "<tr><td>" + subKey + "</td><td>" + cellData + "</td></tr>";
+          }
+        } else {
+          tableHTML += "<tr><td>" + key + "</td><td>" + phoneHardware[key] + "</td></tr>";
+        }
+      }
+
+      table.innerHTML = tableHTML;
+    }
+  }
+
+
+  compatRequirements = {
+    camera: {
+      hasCamera: true
+    },
+    deviceOrientationEvent: {
+      hasDeviceOrientationEvent: true
+    },
+  };
+
+  function checkRequirements() {
+  // Check if the device meets the required hardware capabilities
+  const requirementsMet = Object.keys(compatRequirements).every(req => {
+    return Object.keys(compatRequirements[req]).every(subReq => {
+      return phoneHardware[req][subReq] === compatRequirements[req][subReq];
+    });
+  });
+
+  // Get the OS family using the platform.js library (assuming it's included in your project)
+  const osFamily = platform.os.family;
+
+  if (requirementsMet) {
+    if (osFamily === "iOS") {
+      // Redirect to iOS App Store
+      window.location.href = "https://apps.apple.com/nl/app/klooster-mari%C3%ABnborn/id1597947381";
+    } else if (osFamily === "Android") {
+      // Redirect to Google Play Store
+      window.location.href = "https://play.google.com/store/apps/details?id=com.mamaproducties.glk.marienborn&pli=1";
+    } else {
+      // Redirect to invalid device page
+      window.location.href = "/invalid-device";
+    }
+  } else {
+    // Redirect to requirements help page
+    window.location.href = "/requirements-help";
+  }
+}
+
+// Ensure platform.js library is included for platform detection
+if (typeof platform === "undefined") {
+  console.error("Platform.js library is not included. Please include it in your project.");
+} else {
+  // Call the checkRequirements function to perform the check and redirect
+  checkRequirements();
+}
+
+
+  checkOperatingSystem();
+  showHardware();
+
+</script>
+
+</html>
