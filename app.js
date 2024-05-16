@@ -55,12 +55,12 @@ async function getUserData(req) {
 
 }
 
-app.get('/dashboard', logEvent, isUserLoggedIn, async (req, res) => {
-    res.render('dashboard');
-});
+// app.get('/dashboard', logEvent, isUserLoggedIn, async (req, res) => {
+//     res.render('dashboard');
+// });
 
 app.get('/', isUserLoggedIn, logEvent, (req, res) => {
-    res.render('dashboard');
+    res.render('home');
 });
 
 app.get('/home', logEvent, isUserLoggedIn, async (req, res) => {
@@ -153,7 +153,7 @@ app.use((req, res, next) => {
 });
 
 
-http.createServer(app).listen(3002, function () {
+http.createServer(app).listen(3004, function () {
     log.success('Server has started!');
 });
 
