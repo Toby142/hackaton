@@ -34,7 +34,9 @@ $(document).ready(function() {
         })
         .then(data => {
             console.log('Success:', data);
-          
+            if(data.message) {
+                window.location.href = "/home";
+            }
         })
         .catch(error => {
             console.error('Error:', error);
