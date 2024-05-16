@@ -19,20 +19,21 @@
 
     <div class="profile-container">
         <label for="first-name">First Name
-        <input name="firstname" id="first-name" type="text" maxlength="15" placeholder="First Name" value=""/>
+        <input name="firstname" id="first-name" type="text" maxlength="15" placeholder="First Name" value="<%= userData.firstname %>"/>
         </label>
 
         <label for="last-name">Sir Name
-        <input name="lastname" id="last-name" type="text" maxlength="25" placeholder="Sir Name" value=""/>
+        <input name="lastname" id="last-name" type="text" maxlength="25" placeholder="Sir Name" value="<%= userData.lastname %>"/>
+        </label>
+
+        <label for="username">Username
+          <input name="username" id="username" type="text" maxlength="25" placeholder="Username" value="<%= userData.username %>"/>
         </label>
 
         <label for="email">Email
-        <input name="email" id="email" type="text" maxlength="40" placeholder="Enter Username" value=""/>
+        <input name="email" id="email" type="text" maxlength="40" placeholder="Enter Username" value="<%= userData.email %>"/>
         </label>
 
-        <!-- <button class="profile-delete-button">
-          Delete Account
-        </button> -->
 
         <button class="profile-logout-button">
           <a href="/logout">
