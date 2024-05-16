@@ -78,6 +78,25 @@ app.get('/stats', logEvent, isUserLoggedIn, async (req, res) => {
   res.render('stats', { userData });
 });
 
+// make an app.get for the new page compat-check.ejs where a parameter /linkId is required
+app.get('/compat-check/:linkId', logEvent, isUserLoggedIn, async (req, res) => {
+  const linkId = req.params.linkId;
+  const userData = await getUserData(req);
+  res.render('compat-check', { userData, linkId });
+});
+
+// make 2 links to /invalid-device and requirements-help
+app.get('/invalid-device', logEvent, isUserLoggedIn, async (req, res) => {
+  const userData = await getUserData(req);
+  res.render('invalid-device', { userData });
+});
+
+app.get('/requirements-help', logEvent, isUserLoggedIn, async (req, res) => {
+  const userData = await getUserData(req);
+  res.render('requirements-help', { userData });
+});
+
+
 
 app.post('/users/create', async (req, res, next) => {
     const { firstname, lastname, email, username, newpassword} = req.body;
