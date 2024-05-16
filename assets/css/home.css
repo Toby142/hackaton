@@ -105,6 +105,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    background-color: #F5F5F5;
     background-image: url("https://s3-alpha-sig.figma.com/img/538b/b75a/60d1a23aff04420eff779eb17fa96de5?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XLtSUwpGjXe~ofEPthyeR1MnQ-aAI~DGu8FrU4tK1i1WsgKqjJUxCiXrnkc5TjlnFdq5OXDl-j36aIiF6zFyJpZnubL9cAklX~2syvCkjp8HE~zvPKgHwvpAvjNT7ZIXq13XO3yeujuxP3LGmUo3NYVUgriQq~7Oo1mH1EK0yb~KVvoRdRgnmFbTC2W4BSzcom-9A-56AcQQHTLQvgWGQr5Kw1Zi3Tp6mNdG2N1CoXSzI532nWZyoSKg7IU18pITXJauHrYmS4ySBHsTR0WWoUh4Ntf1OkXrj5uYzr~Ei5hWmNoGJcO7-7AxshhSLEN4pdTjJVLCcCx3PvNMbmY4xw__");
     display: inline-block;
     border: none;
