@@ -68,6 +68,11 @@ app.get('/home', logEvent, isUserLoggedIn, async (req, res) => {
     res.render('home', { userData });
 });
 
+app.get('/profile', logEvent, isUserLoggedIn, async (req, res) => {
+    const userData = await getUserData(req);
+    res.render('profile', { userData });
+});
+
 
 app.post('/users/create', async (req, res, next) => {
     const { firstname, lastname, email, username, newpassword} = req.body;
