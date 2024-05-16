@@ -68,6 +68,11 @@ app.get('/home', logEvent, isUserLoggedIn, async (req, res) => {
     res.render('home', { userData });
 });
 
+app.get('/profile', logEvent, isUserLoggedIn, async (req, res) => {
+    const userData = await getUserData(req);
+    res.render('profile', { userData });
+});
+  
 app.get('/stats', logEvent, isUserLoggedIn, async (req, res) => {
   const userData = await getUserData(req);
   res.render('stats', { userData });
