@@ -8,6 +8,8 @@ const session = require('express-session');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const User = require('./models/User');
+const App = require('./models/App');
+const Link = require('./models/Link');
 const db = require('./database/keys').mongoURI;
 
 const { ObjectId } = require('mongodb');
@@ -66,6 +68,16 @@ app.get('/', isUserLoggedIn, logEvent, (req, res) => {
 app.get('/home', logEvent, isUserLoggedIn, async (req, res) => {
     const userData = await getUserData(req);
     res.render('home', { userData });
+});
+
+
+app.get('/create-app', logEvent, isUserLoggedIn, async (req, res) => {
+  const userData = await getUserData(req);
+  res.render('create-app', { userData });
+});
+app.get('/edit-app', logEvent, isUserLoggedIn, async (req, res) => {
+  const userData = await getUserData(req);
+  res.render('edit-app', { userData });
 });
 
 app.get('/profile', logEvent, isUserLoggedIn, async (req, res) => {
@@ -176,6 +188,30 @@ app.get('/register', logEvent, async (req, res) => {
     }
     res.render('register');
 });
+
+
+
+app.post('/app/create', async (req, res, next) => {
+  const _userID = req.session.userInfo;
+  const { name } = req.body;
+
+  if(name) {
+    try {
+
+      const newApp = await App.create({ _userID, name });
+      res.status(201).json({ message: 'App created' });
+    } catch (error) {
+      next(error);
+    }
+  } else {
+    res.sendStatus(500);
+    return;
+  }
+ 
+});
+
+
+
 
 app.use((req, res, next) => {
     res.render('404');

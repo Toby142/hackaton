@@ -1,0 +1,15 @@
+h1 {
+    font-size: 35px;
+    font-family: 'core sans 45';
+}
+
+label {
+    font-family: 'core sans 45';
+}
+
+.profile-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 300px;
+}
