@@ -9,7 +9,7 @@
 build/
 
 # Ignore package manager directories
-node_modules/
+node_modules
 packages/
 
 # Ignore log files
