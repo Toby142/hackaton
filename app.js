@@ -72,6 +72,11 @@ app.get('/profile', logEvent, isUserLoggedIn, async (req, res) => {
     const userData = await getUserData(req);
     res.render('profile', { userData });
 });
+  
+app.get('/stats', logEvent, isUserLoggedIn, async (req, res) => {
+  const userData = await getUserData(req);
+  res.render('stats', { userData });
+});
 
 
 app.post('/users/create', async (req, res, next) => {
