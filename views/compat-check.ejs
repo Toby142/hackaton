@@ -24,7 +24,7 @@
     <h1>Compat<span style="color: rgb(67, 67, 206);">Guard</span></h1>
     <h2>We checked your <span id="firstOs" style="color: black;"></span> device</h2>
 
-    <p style="color: rgb(181, 181, 181);">We checked your <span id="device"></span> that is running OS <span id="os"></span></p>
+    <p style="color: rgb(181, 181, 181);">We found that your <span id="device"></span> is running OS version <span id="os"></span></p>
     <p id="modelName"></p>
 
     <a href="https://tobiasvandeven.nl">Go to the website</a>
@@ -146,16 +146,23 @@
   }
 
   function displayDeviceInfo(device, os, modelName) {
-    document.getElementById("device").innerHTML = device;
-    document.getElementById("os").innerHTML = os;
-    document.getElementById("modelName").innerHTML =  modelName;
+      if (platform.os.family === "iOS") {
+        document.getElementById("device").innerHTML = platform.manufacturer + " " + platform.product; 
+        console.log(modelName);
+      } else {
+        document.getElementById("device").innerHTML = device;
+        console.log(device);
+      }
 
-    console.log(device);
-    console.log(os);
-    console.log(modelName);
+      document.getElementById("os").innerHTML = os;
 
-    searchPhone(device);
-  }
+      console.log(device);
+      console.log(os);
+      console.log(modelName);
+
+      searchPhone(device);
+    }
+
 
   function identifyAndroidDevice() {
     let device = WURFL.complete_device_name;
@@ -334,6 +341,10 @@
       // Redirect to invalid device page
       window.location.href = "/invalid-device";
     }
+
+    // Show the checked icon
+    document.getElementById("iconChecking").style.display = "none";
+    document.getElementById("iconChecked").style.display = "flex";
   } else {
     // Redirect to requirements help page
     window.location.href = "/requirements-help";
