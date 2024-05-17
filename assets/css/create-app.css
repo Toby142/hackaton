@@ -10,12 +10,11 @@ input, label, h1, p, a{
 .profile-container {
     display: flex;
     gap: 20px;
-    justify-content: center;
-    padding-bottom: 300px;
+    padding-top: 100px;
 }
 
 .app {
-    margin-top: -40px;
+    
 }
 
 #delete {

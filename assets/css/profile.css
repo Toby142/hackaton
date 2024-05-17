@@ -4,8 +4,8 @@ body {
 
 .close-container {
     position: absolute;
-    top: 24px;
-    right: 24px;
+    top: 30px;
+    right: 30px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -34,7 +34,7 @@ label {
     display: flex;
     flex-direction: column;
     font-size: 14px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 input[type="text"] {
@@ -44,7 +44,7 @@ input[type="text"] {
     border-radius: 7px;
     padding-left: 10px;
     margin-top: 5px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .profile-delete-button {
@@ -83,4 +83,8 @@ input[type="text"] {
     display: flex;
     align-items: center;
     justify-content: center; 
+}
+
+#logout {
+    color: #FF6666;
 }

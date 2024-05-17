@@ -10,6 +10,14 @@ const AppSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  like: {
+    type: Number,
+    default: 0
+  },
+  dislike: {
+    type: Number,
+    default: 0
+  },
   date: {
     type: Date,
     default: Date.now

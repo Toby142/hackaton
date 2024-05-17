@@ -5,8 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile Pagina</title>
+
   <script src="/assets/js/jquery.js" defer></script>
   <script src="/assets/js/actions.js" defer></script>
+
 
   <link rel="stylesheet" href="/assets/css/home.css" />
   <link rel="stylesheet" href="/assets/css/reset.css" />
@@ -24,35 +26,29 @@
   </navigation>
 
   <div class="profile-container">
-    <h1>Profile</h1>
+    <h1>Create link</h1>
+    <p><%=app[0].name%></p>
 
-    <label for="firstname">First Name
-      <input name="firstname" id="firstname" type="text" maxlength="20" value="<%=userData.firstname%>" />
+    <input name="appID" id="appID" type="text" value="<%=app[0]._id%>" hidden/>
+
+    <label for="name">Name
+      <input name="name" id="name" type="text" maxlength="15" placeholder="QR-Scanner" value="" />
     </label>
 
-    <label for="lastname">Last Name
-      <input name="lastname" id="lastname" type="text" maxlength="20" value="<%=userData.lastname%>" />
+    <label for="redirect">Redirect link
+      <input name="redirect" id="redirect" type="text" maxlength="15" placeholder="https://template.nl/" value="" />
     </label>
     
-    <label for="username">Username
-      <input name="username" id="username" type="text" maxlength="20" value="<%=userData.username%>" />
-    </label>
-
-    <label for="email">Email
-      <input name="email" id="email" type="text" maxlength="20" value="<%=userData.email%>" />
+    <label for="requirements">Requirements
+      <input name="requirements" id="requirements" type="text" maxlength="15" placeholder="test" value="" />
     </label>
 
 
     
-    <a id="logout" href="/logout">
-      Logout
-    </a>
+    
 
 
-
-     
-
-    <button id="edit-profile-save" class="profile-save-button">
+    <button id="create-link-button" class="profile-save-button">
       <i class="fa-solid fa-check"></i>
     </button>
   </div>

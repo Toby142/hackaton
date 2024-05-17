@@ -36,7 +36,64 @@
           <!-- <button class="add"></button> -->
         </div>
 
+
+
         <div id="apps-list-container">
+
+          <% app.forEach((item, i)=> {
+            
+            console.log(item);%>
+
+              <div class="app">
+                <div class="app-top">
+                    <div class="app-top-left">
+                        <div class="app-status"></div>
+                        <p><%= item.name %></p>
+                    </div> 
+                    
+                    <a class="app-top-right">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    </a>
+                </div>
+
+                <div class="app-bottom">
+                    <div class="app-stats-cont">
+
+                      <div class="app-stat-likes">
+                        <p><%= item.like %></p> <p>👍</p>
+                      </div>
+
+                      <div class="app-stat-dislike">
+                        <p><%= item.dislike %></p> <p>👎</p>
+                      </div>
+
+                      <div class="app-stat-views">
+                        <p><%
+                          let total = 0;
+                          item.links.forEach((item, i)=> {
+                            total++;
+                          });
+                          
+                           %><%= total %></p> <p>👀</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          <% }); %>
+              
+
+          <% 
+          if(app.length < 1) { %>
+              <p class="notification-emp">Nothing to see.</p>
+          <%}
+          %>
+
+
+      </div>
+
+
+        <!-- <div id="apps-list-container">
 
           <div class="app">
               <div class="app-top">
@@ -68,7 +125,7 @@
                   </div>
               </div>
           </div>
-      </div>
+      </div> -->
         <!-- <p class="notification-emp">Nothing to see.</p> -->
       </section>
       <div class="copyright-wrapper">

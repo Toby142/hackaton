@@ -24,35 +24,38 @@
   </navigation>
 
   <div class="profile-container">
-    <h1>Profile</h1>
+    <h1>Edit link</h1>
 
-    <label for="firstname">First Name
-      <input name="firstname" id="firstname" type="text" maxlength="20" value="<%=userData.firstname%>" />
+    <input name="linkID" id="linkID" type="text" value="<%=app._id%>" hidden/>
+
+    <label for="name">Name
+      <input name="name" id="name" type="text" maxlength="15" value="<%= app.name %>" />
     </label>
 
-    <label for="lastname">Last Name
-      <input name="lastname" id="lastname" type="text" maxlength="20" value="<%=userData.lastname%>" />
+    <label for="redirect">Redirect link
+      <input name="redirect" id="redirect" type="text" maxlength="15" value="<%= app.link %>" />
     </label>
     
-    <label for="username">Username
-      <input name="username" id="username" type="text" maxlength="20" value="<%=userData.username%>" />
-    </label>
-
-    <label for="email">Email
-      <input name="email" id="email" type="text" maxlength="20" value="<%=userData.email%>" />
+    <label for="requirements">Requirements
+      <input name="requirements" id="requirements" type="text" maxlength="15" value="<%= app.requirements %>" />
     </label>
 
 
     
-    <a id="logout" href="/logout">
-      Logout
+
+
+    <a href="<%= qrcode %>" download>
+      download qrcode
     </a>
 
+    <!-- <div class="qrcode-container">
+      <img id="qrcode" src="<%= qrcode %>" alt="QR-CODE"/>
+    </div>
+     -->
 
+     <a id="delete" href="/link/delete/<%= app._id %>">Delete</a>
 
-     
-
-    <button id="edit-profile-save" class="profile-save-button">
+    <button id="edit-link-save" class="profile-save-button">
       <i class="fa-solid fa-check"></i>
     </button>
   </div>

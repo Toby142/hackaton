@@ -22,9 +22,13 @@ const LinkSchema = new mongoose.Schema({
     type: Array,
     required: true
   },
+  views: {
+    type: Number,
+    default: 0
+  },
   active: {
     type: Boolean,
-    required: true
+    required: false
   },
   date: {
     type: Date,

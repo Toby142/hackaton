@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile Pagina</title>
+  <script src="/assets/js/jquery.js" defer></script>
+  <script src="/assets/js/actions.js" defer></script>
+
   <link rel="stylesheet" href="/assets/css/home.css" />
   <link rel="stylesheet" href="/assets/css/reset.css" />
   <link rel="stylesheet" href="/assets/css/profile.css" />
@@ -21,70 +24,62 @@
   </navigation>
 
   <div class="profile-container">
-    <h1>Edit app</h1>
+    <h1>Edit app <a class="add" href="/create-link/<%=app[0]._id%>"></a> </h1>
+    
+    <input name="appID" id="appID" type="text" value="<%=app[0]._id%>" hidden/>
+
+
     <label for="name">Name
-      <input name="name" id="name" type="text" maxlength="15" value="Compatguard" value="" />
+      <input name="name" id="name" type="text" maxlength="15" value="<%=app[0].name%>" />
     </label>
 
 
     <div id="apps-list-container">
-
-
+      
+      <% if(app[0].links.length > 0) { %>
       <div class="app">
         <div class="app-bottom">
 
-          <div class="link">
-            <div class="link-top">
-              <p>MaMa Productie</p>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </div>
 
-            <div class="link-bottom">
-              <div class="link-stats">
-                <div class="link-stats-vws">
-                  <div class="views">
-                    <p>200</p><i class="fa-solid fa-eye"></i>
+          <% app[0].links.forEach((item, i)=> {%>
+            <a class="link" href="/link/<%=item._id%>">
+              <div class="link-top">
+                <p><%=item.name%></p>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
+
+              <div class="link-bottom">
+                <div class="link-stats">
+                  <div class="link-stats-vws">
+                    <div class="views">
+                      <p><%=item.views%></p><i class="fa-solid fa-eye"></i>
+                    </div>
+                  </div>
+
+                  <div class="link-stats-sts">
+                    <p class="status">online</p>
                   </div>
                 </div>
-
-                <div class="link-stats-sts">
-                  <p class="status">online</p>
-                </div>
               </div>
-            </div>
-          </div>
+            </a>
+          <% })%>
 
 
-
-          <div class="link">
-            <div class="link-top">
-              <p>Luc's Sportschool</p>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </div>
-
-            <div class="link-bottom">
-              <div class="link-stats">
-                <div class="link-stats-vws">
-                  <div class="views">
-                    <p>200</p><i class="fa-solid fa-eye"></i>
-                  </div>
-                </div>
-
-                <div class="link-stats-sts">
-                  <p class="status">online</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
+
+      <% } else { %>
+        <p class="notification-emp">Create an link to start.</p>
+
+        <% }%> 
     </div>
 
 
-    <p id="delete">Delete</p>
+    <a id="delete" href="/app/delete/<%=app[0]._id%>">Delete</a>
 
 
-    <button class="profile-save-button">
+    <button id="edit-app-save" class="profile-save-button">
       <i class="fa-solid fa-check"></i>
     </button>
   </div>
