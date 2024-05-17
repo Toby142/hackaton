@@ -135,7 +135,9 @@ input[type=radio] {
 
 .auth-extra {
     color: #A9A9A9;
-    font-family: Core Sans C;
+    font-family: "Archivo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: 20px;
     font-style: italic;
     font-weight: 200;

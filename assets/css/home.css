@@ -1,35 +1,17 @@
-@font-face {
-    font-family: "core sans";
-    src: url("../font/Fontspring-DEMO-coresansc35.otf");
-  }
-  @font-face {
-    font-family: "core sans it";
-    src: url("../font/Fontspring-DEMO-coresansc35it.otf");
-  }
-  @font-face {
-    font-family: "core sans 45";
-    src: url("../font/Fontspring-DEMO-coresansc45.otf");
-  }
-
-  @font-face {
-    font-family: "core sans 75";
-    src: url("../font/Fontspring-DEMO-coresansc75.otf");
-  }
- 
-
-@import url('https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap');
-
-
-
-
-  body {
+body {
     max-width: 100vw;
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: "core sans";
+    font-family: "Archivo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
-
+  * {
+    font-family: "Archivo", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+  }
   .container {
     min-height: 100vh;
     max-width: 100vw;
@@ -45,14 +27,12 @@
     gap: 10px;
   }
   .head-greating-name {
-    font-family: "core sans";
     font-size: 40px;
     line-height: auto;
   }
 
   .head-greeting-message {
     padding-bottom: 30px;
-    font-family: "core sans 45";
     color: #a9a9a9;
     font-size: 18px;
   }
@@ -97,12 +77,13 @@
   }
 
   .icon-item-name {
+    font-size: 13px;
+    font-weight: 500;
     color: black;
-    font-family: "core sans 45";
     text-align: center;
-    font-size: 12px;
   }
   .apps-head {
+    font-weight: 500;
     height: 40px;
     display: flex;
     justify-content: space-between;
@@ -131,8 +112,8 @@
 }
   .notification-emp {
     color: #a9a9a9;
-    font-family: "core sans it";
-    font-size: 18px;
+    font-size: 15px;
+    font-weight: 300;
     text-align: center;
   }
   .link-top p {
@@ -151,7 +132,6 @@
     line-height: 14px;
     color: rgba(0, 0, 0, 0.2);
     font-size: 12px;
-    font-family: "core sans 45";
     text-align: center;
   }
 
