@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="/assets/css/reset.css"/>
     <link rel="stylesheet" href="/assets/css/home.css"/>
     <link rel="stylesheet" href="/assets/css/stats.css"/>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap');
+ </style>
   </head>
 
   <body>
     <div class="container">
       <div class="head">
-        <h1 class="head-greating-name">Hallo alex,</h1>
-        <p class="head-greeting-message">Goedemorgen 👊🏻</p>
+        <h1 class="head-greating-name">Hello <%= userData.firstname %></h1>
+        <p class="head-greeting-message">Goodmorning 👊🏻</p>
         <div class="head-icons-container">
           <a class="head-icon-item" href="/profile">
             <div class="icon-circle"></div>

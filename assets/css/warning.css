@@ -25,33 +25,43 @@
 
 .warning-text {
     max-width: 80%;
-    font-family: 'core sans 45';
+    font-family: "Archivo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: 20px;
     text-align: center;
 }
 .warning-text b {
-    font-family: 'core sans 75';
+    font-weight: 600;
+    font-family: "Archivo", sans-serif;
+    font-style: normal;
     color: #FFA826;
 }
 
 #doorgaan {
     border-radius: 8px;
     padding: 10px;
-    font-family: 'core sans 45';
+    font-family: "Archivo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     background-color: #FFA826;
     color: white;
 }
 
 #oplossing {
-    font-family: 'core sans it';
+    font-style: italic;
+    font-family: "Archivo", sans-serif;
+    font-weight: 200;
     color: #A9A9A9;
 }
 .left {
     text-align: left;
 }
 .link-click {
+    font-style: italic;
     opacity: 50%;
-    font-family: 'core sans it';
+    font-family: "Archivo", sans-serif;
+    font-weight: 400;
     color: #002DA0;
     text-align: left;
     max-width: 265px;
