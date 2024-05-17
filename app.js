@@ -188,7 +188,7 @@ app.get('/link/:id', logEvent, isUserLoggedIn, async (req, res) => {
 
   const { id } = req.params;
   const app = await getUserLink(req, id);
-  const qrcode = await qr.toDataURL(`http://localhost:3004/visit-link/${id}`);
+  const qrcode = await qr.toDataURL(`https://hackaton-production.up.railway.app/visit-link/${id}`);
   const userData = await getUserData(req);
   res.render('edit-link', { app, userData, qrcode });
 });
