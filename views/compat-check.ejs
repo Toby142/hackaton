@@ -17,20 +17,97 @@
 </head>
 
 <body>
-  <h1>Compat Care</h1>
-  <p>Device compatibility check please wait</p>
+  <div class="container">
+    <div class="icon" id="iconChecking">⚙️</div>
+    <div class="iconChecked" id="iconChecked">✅</div>
 
-  <h1>Compat <span style="color: rgb(67, 67, 206);">Guard</span></h1>
-  <p id="firstOs"></p>
+    <h1>Compat<span style="color: rgb(67, 67, 206);">Guard</span></h1>
+    <h2>We checked your <span id="firstOs" style="color: black;"></span> device</h2>
 
-  <p id="device"></p> 
-  <p id="os"></p>
-  <p id="modelName"></p>
+    <p style="color: rgb(181, 181, 181);">We checked your <span id="device"></span> that is running OS <span id="os"></span></p>
+    <p id="modelName"></p>
 
-  <table id="table">
-
-  </table>
+    <a href="https://tobiasvandeven.nl">Go to the website</a>
+  </div>
 </body>
+
+<style>
+  h1 {
+    font-size: 30px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 700;
+    color: rgb(181, 181, 181);
+  }
+
+  span {
+    color: black;
+  }
+
+  #modelName {
+    color: rgba(0, 0, 0, 0.185);
+    font-size: 10px;
+  }
+
+  .container {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  .icon , .iconChecked {
+    font-size: 75px;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #ecebe0;
+  }
+
+  .iconChecked {
+    font-size: 60px;
+    display: none;
+  }
+
+  /* animate icon to rotate slowly */
+  .icon {
+    animation: rotate 5s linear infinite;
+  }
+  
+  a {
+    margin-top: 20px;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid black;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+
+  a:active {
+    background-color: #000;
+    color: #fff;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
 
 <script>
   const iosDeviceMapping = new Map([
@@ -69,9 +146,9 @@
   }
 
   function displayDeviceInfo(device, os, modelName) {
-    document.getElementById("device").innerHTML = "<b>Device</b>: " + device;
-    document.getElementById("os").innerHTML = "<b>OS</b>: " + os;
-    document.getElementById("modelName").innerHTML = "<b>Model or similar</b>: " + modelName;
+    document.getElementById("device").innerHTML = device;
+    document.getElementById("os").innerHTML = os;
+    document.getElementById("modelName").innerHTML =  modelName;
 
     console.log(device);
     console.log(os);
@@ -246,14 +323,16 @@
 
   if (requirementsMet) {
     if (osFamily === "iOS") {
-      // Redirect to iOS App Store
-      window.location.href = "<%=link.link%>";
+      setTimeout(() => {
+        window.location.href = "https://apps.apple.com/nl/app/klooster-mari%C3%ABnborn/id1597947381";
+      }, 1000);
     } else if (osFamily === "Android") {
-      // Redirect to Google Play Store
-      window.location.href = "<%=link.link%>";
+      setTimeout(() => {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.mamaproducties.glk.marienborn&pli=1";
+      }, 1000);
     } else {
       // Redirect to invalid device page
-      window.location.href = "/invalid-device/<%=link.link%>";
+      window.location.href = "/invalid-device";
     }
   } else {
     // Redirect to requirements help page

@@ -13,6 +13,9 @@ const App = require('./models/App');
 const Link = require('./models/Link');
 const db = require('./database/keys').mongoURI;
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 const { ObjectId } = require('mongodb');
 
 mongoose
@@ -405,7 +408,10 @@ app.use((req, res, next) => {
 });
 
 
-http.createServer(app).listen(3004, function () {
-    log.success('Server has started!');
-});
+const server = http.createServer(app);
 
+const port = process.env.PORT || 3004;
+
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
