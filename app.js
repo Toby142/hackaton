@@ -166,9 +166,9 @@ app.get('/invalid-device', logEvent, async (req, res) => {
   res.render('invalid-device', );
 });
 
-app.get('/requirements-help', logEvent, isUserLoggedIn, async (req, res) => {
+app.get('/requirements-help', logEvent, async (req, res) => {
   const userData = await getUserData(req);
-  res.render('requirements-help', { userData });
+  res.render('requirements-help');
 });
 
 app.get('/app/:id', logEvent, isUserLoggedIn, async (req, res) => {

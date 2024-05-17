@@ -32,8 +32,8 @@
     text-align: center;
 }
 .warning-text b {
+    font-weight: 600;
     font-family: "Archivo", sans-serif;
-    font-weight: 400;
     font-style: normal;
     color: #FFA826;
 }
@@ -49,19 +49,19 @@
 }
 
 #oplossing {
+    font-style: italic;
     font-family: "Archivo", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    font-weight: 200;
     color: #A9A9A9;
 }
 .left {
     text-align: left;
 }
 .link-click {
+    font-style: italic;
     opacity: 50%;
     font-family: "Archivo", sans-serif;
     font-weight: 400;
-    font-style: normal;
     color: #002DA0;
     text-align: left;
     max-width: 265px;
